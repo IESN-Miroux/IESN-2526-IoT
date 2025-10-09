@@ -13,3 +13,4 @@ while True:
 
     status = strligne.split()
     print(status[0])
+    print(status[0] is "Success")
