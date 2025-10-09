@@ -33,17 +33,17 @@ void loop() {
 
     // Print output
     Serial.print("Success : ");
-    Serial.println(ms_from_start);
-    Serial.print("temp : ");
-    Serial.println(tempDeg);
-    Serial.print("hum : ");
+    Serial.print(ms_from_start);
+    Serial.print(", temp : ");
+    Serial.print(tempDeg);
+    Serial.print(", hum : ");
     Serial.println(hum);
 
     }
 
     else {
 
-      Serial.print("Fail unable to get data : ");
+      Serial.print("Fail : unable to get data : ");
       Serial.println(ms_from_start);
 
     }
