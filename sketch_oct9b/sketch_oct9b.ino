@@ -27,16 +27,18 @@ void loop() {
     int hum = dht.getHumidity();
 
     // Print output
-    Serial.print("Success, %0.1lf, %d", tempDeg, hum);
-    Serial.print(ms_from_start);
-    Serial.print(ms_from_start_looped);
+    Serial.println("Success");
+    Serial.print(tempDeg);
+    Serial.print(hum);
+    Serial.println(ms_from_start);
+    Serial.println(ms_from_start_looped);
 
   }
 
   else {
-    Serial.print("Fail unable to get data");
-    Serial.print(ms_from_start);
-    Serial.print(ms_from_start_looped);
+    Serial.println("Fail unable to get data");
+    Serial.println(ms_from_start);
+    Serial.println(ms_from_start_looped);
   }
 
 }
