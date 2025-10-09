@@ -34,7 +34,7 @@ void loop() {
   }
 
   else {
-    Serial.printf("Fail unable to get data")
+    Serial.printf("Fail unable to get data");
     Serial.printf(ms_from_start);
     Serial.printf(ms_from_start_looped);
   }
