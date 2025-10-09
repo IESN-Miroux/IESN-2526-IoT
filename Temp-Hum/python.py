@@ -10,3 +10,6 @@ while True:
     strligne = strlignes.strip()
 
     print(strligne)
+
+    status = strligne.split()
+    print(status[0])
