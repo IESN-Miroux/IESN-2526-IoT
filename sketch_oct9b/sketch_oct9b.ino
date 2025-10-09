@@ -4,20 +4,18 @@
 Bonezegei_DHT22 dht(2);
 // millis zone
 unsigned long ms_from_start = 0;
-unsigned long ms_from_start_looped = 0;
+unsigned long ms_from_start = 0;
 
 void setup() {
 
   Serial.begin(9600);
   dht.begin();
 
-  ms_from_start = millis();
-
 }
 
 void loop() {
   
-  ms_from_start_looped = millis();
+  ms_from_start = millis();
 
   if (dht.getData()) {
     
@@ -27,25 +25,20 @@ void loop() {
     int hum = dht.getHumidity();
 
     // Print output
-    Serial.println("Success");
+    Serial.print("Success : ");
+    Serial.println(ms_from_start);
     Serial.print("temp : ");
     Serial.println(tempDeg);
     Serial.print("hum : ");
     Serial.println(hum);
 
-    Serial.println("Test millis");
-    Serial.println(ms_from_start);
-    Serial.println(ms_from_start_looped);
-    Serial.println("Fin Test millis");
-
   }
 
   else {
-    Serial.println("Fail unable to get data");
-    Serial.println("Test millis");
+
+    Serial.print("Fail unable to get data : ");
     Serial.println(ms_from_start);
-    Serial.println(ms_from_start_looped);
-    Serial.println("Fin Test millis");
+
   }
 
 }
