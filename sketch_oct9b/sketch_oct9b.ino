@@ -28,10 +28,10 @@ void loop() {
 
     // Print output
     Serial.println("Success");
-    Serial.println("temp : ");
-    Serial.print(tempDeg);
-    Serial.println("hum : ");
-    Serial.print(hum);
+    Serial.print("temp : ");
+    Serial.println(tempDeg);
+    Serial.print("hum : ");
+    Serial.println(hum);
 
     Serial.println("Test millis")
     Serial.println(ms_from_start);
