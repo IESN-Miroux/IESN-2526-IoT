@@ -4,7 +4,6 @@
 Bonezegei_DHT22 dht(2);
 // millis zone
 unsigned long ms_from_start = 0;
-unsigned long ms_from_start = 0;
 
 void setup() {
 
