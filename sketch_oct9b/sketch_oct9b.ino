@@ -33,19 +33,19 @@ void loop() {
     Serial.print("hum : ");
     Serial.println(hum);
 
-    Serial.println("Test millis")
+    Serial.println("Test millis");
     Serial.println(ms_from_start);
     Serial.println(ms_from_start_looped);
-    Serial.println("Fin Test millis")
+    Serial.println("Fin Test millis");
 
   }
 
   else {
     Serial.println("Fail unable to get data");
-    Serial.println("Test millis")
+    Serial.println("Test millis");
     Serial.println(ms_from_start);
     Serial.println(ms_from_start_looped);
-    Serial.println("Fin Test millis")
+    Serial.println("Fin Test millis");
   }
 
 }
