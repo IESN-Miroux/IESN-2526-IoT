@@ -2,8 +2,11 @@
 
 //param (2) = pin used for data
 Bonezegei_DHT22 dht(2);
+
 // millis zone
 unsigned long ms_from_start = 0;
+unsigned long last_read = 0;
+unsigned long interval = 2000;
 
 void setup() {
 
@@ -16,7 +19,12 @@ void loop() {
   
   ms_from_start = millis();
 
-  if (dht.getData()) {
+  if (ms_from_start - last_read >= interval) 
+  {
+
+    last_read = ms_from_start;
+
+    if (dht.getData()) {
     
     // get temperatur in celsius
     float tempDeg = dht.getTemperature();
@@ -31,12 +39,14 @@ void loop() {
     Serial.print("hum : ");
     Serial.println(hum);
 
-  }
+    }
 
-  else {
+    else {
 
-    Serial.print("Fail unable to get data : ");
-    Serial.println(ms_from_start);
+      Serial.print("Fail unable to get data : ");
+      Serial.println(ms_from_start);
+
+    }
 
   }
 
