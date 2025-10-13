@@ -2,7 +2,7 @@ import serial
 import json
 
 USB = "/dev/ttyACM0"
-SER = serial.Serial(USB, baudrate=9600, dsrdtr=False)
+SER = serial.Serial(USB, baudrate=115200, dsrdtr=False)
 
 while True:
 
