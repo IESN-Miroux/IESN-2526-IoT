@@ -32,18 +32,23 @@ void loop() {
     int hum = dht.getHumidity();
 
     // Print output
-    Serial.print("Success : ");
-    Serial.print(ms_from_start);
-    Serial.print(", temp : ");
+    Serial.print("{\"sensor\":\"just 1 liam\",");
+    Serial.print("\"ok\":");
+    Serial.print(true);
+    Serial.print(",\"temp_c\":");
     Serial.print(tempDeg);
-    Serial.print(", hum : ");
-    Serial.println(hum);
+    Serial.print(",\"hum\":");
+    Serial.print(hum);
+    Serial.print(",\"ts_ms\":");
+    Serial.print(ms_from_start);
+    Serial.println("}")
 
     }
 
     else {
 
       Serial.print("Fail : unable to get data : ");
+      Serial.print(",ts_ms:");
       Serial.println(ms_from_start);
 
     }
