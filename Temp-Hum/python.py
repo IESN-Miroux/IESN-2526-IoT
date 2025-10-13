@@ -1,4 +1,5 @@
 import serial
+import json
 
 USB = "/dev/ttyACM0"
 SER = serial.Serial(USB, baudrate=9600, dsrdtr=False)
@@ -13,4 +14,12 @@ while True:
 
     status = strligne.split()
     print(status[0])
-    print(status[0] == "Success")
+
+    if status[0] == "Success":
+
+        a = "ok:true"
+        a_json = json.dumps(a)
+
+        f = open("myjson.json", "w", encoding="utf-8")
+        f.write(a_json)
+        f.close()
