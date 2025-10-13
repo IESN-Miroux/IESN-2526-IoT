@@ -21,5 +21,5 @@ while True:
         a_json = json.dumps(a)
 
         f = open("myjson.json", "w", encoding="utf-8")
-        f.write(a_json)
+        f.write(a)
         f.close()
