@@ -29,7 +29,7 @@ void loop() {
     // get temperatur in celsius
     float tempDeg = dht.getTemperature();
     // get humidity
-    int hum = dht.getHumidity();
+    float hum = dht.getHumidity();
 
     // Print output
     Serial.print("{\"sensor\":\"just 1 liam\",");
@@ -38,7 +38,7 @@ void loop() {
     Serial.print(",\"temp_c\":");
     Serial.print(tempDeg, 1);
     Serial.print(",\"hum\":");
-    Serial.print(hum);
+    Serial.print(hum, 1);
     Serial.print(",\"ts_ms\":");
     Serial.print(ms_from_start);
     Serial.println("}");
