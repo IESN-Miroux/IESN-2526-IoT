@@ -36,12 +36,12 @@ void loop() {
     Serial.print("\"ok\":");
     Serial.print(true);
     Serial.print(",\"temp_c\":");
-    Serial.print(tempDeg);
+    Serial.print(tempDeg, 1);
     Serial.print(",\"hum\":");
     Serial.print(hum);
     Serial.print(",\"ts_ms\":");
     Serial.print(ms_from_start);
-    Serial.println("}")
+    Serial.println("}");
 
     }
 
