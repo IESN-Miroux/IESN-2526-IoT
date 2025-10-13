@@ -46,9 +46,9 @@ void loop() {
 
     else {
 
-      Serial.print("Fail : unable to get data : ");
-      Serial.print(",ts_ms:");
-      Serial.println(ms_from_start);
+      Serial.print("{\"sensor\":\"just 1 liam\",");
+      Serial.print("\"ok\":false,");
+      Serial.println("\"error\":\"Unable to retrieve data\"}")
 
     }
 
