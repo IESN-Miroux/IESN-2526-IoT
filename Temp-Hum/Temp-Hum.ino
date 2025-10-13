@@ -33,8 +33,7 @@ void loop() {
 
     // Print output
     Serial.print("{\"sensor\":\"just 1 liam\",");
-    Serial.print("\"ok\":");
-    Serial.print(true);
+    Serial.print("\"ok\":true");
     Serial.print(",\"temp_c\":");
     Serial.print(tempDeg, 1);
     Serial.print(",\"hum\":");
