@@ -46,7 +46,7 @@ void loop() {
 
     else {
 
-      Serial.print("{\"sensor\":\"just 1 liam\",");
+      Serial.print("{\"deviceID\":\"jla-01\",\"sensor\":\"DHT22\",");
       Serial.print("\"ok\":false,");
       Serial.print("\"error\":\"Unable to retrieve data\"");
       Serial.print(",\"ts_ms\":");
