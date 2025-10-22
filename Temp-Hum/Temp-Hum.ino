@@ -32,7 +32,7 @@ void loop() {
     float hum = dht.getHumidity();
 
     // Print output
-    Serial.print("{\"sensor\":\"just 1 liam\",");
+    Serial.print("{\"deviceID\":\"jla-01\",\"sensor\":\"DHT22\",");
     Serial.print("\"ok\":true");
     Serial.print(",\"temp_c\":");
     Serial.print(tempDeg, 1);
