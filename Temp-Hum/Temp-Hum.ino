@@ -6,7 +6,7 @@ Bonezegei_DHT22 dht(2);
 // millis zone
 unsigned long ms_from_start = 0;
 unsigned long last_read = 0;
-unsigned long interval = 2000;
+unsigned long interval = 5000;
 
 void setup() {
 
