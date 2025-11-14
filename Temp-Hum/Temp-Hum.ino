@@ -1,5 +1,7 @@
 #include <Bonezegei_DHT22.h>
 
+#define PIN 11
+
 //param (2) = pin used for data
 Bonezegei_DHT22 dht(2);
 
@@ -8,15 +10,43 @@ unsigned long ms_from_start = 0;
 unsigned long last_read = 0;
 unsigned long interval = 5000;
 
+float control = 0;
+
 void setup() {
 
+  pinMode(PIN, OUTPUT);
   Serial.begin(115200);
   dht.begin();
 
 }
 
+
+// Set variables used for serial com
+String Buffer = "";
+
+
 void loop() {
+
+  if (Serial.available() > 0) {
+
+    Buffer = Serial.readStringUntil('\n');
+    Serial.flush();
+    Buffer = Buffer.substring(0,4);
+    
+  }
+  int xAxis = analogRead(A0); // Read Joysticks X-axis
+  int yAxis = analogRead(A1); // Read Joysticks Y-axis
   
+  if (Buffer == "over") {
+    control = 100;
+  }
+
+  else if (Buffer == "under") {
+    control = 0;
+  }
+  
+  analogWrite(PIN, control);
+
   ms_from_start = millis();
 
   if (ms_from_start - last_read >= interval) 
