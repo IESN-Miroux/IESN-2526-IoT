@@ -29,19 +29,18 @@ void loop() {
 
   if (Serial.available() > 0) {
 
+    Buffer = "";
     Buffer = Serial.readStringUntil('\n');
     Serial.flush();
     Buffer = Buffer.substring(0,4);
     
   }
-  int xAxis = analogRead(A0); // Read Joysticks X-axis
-  int yAxis = analogRead(A1); // Read Joysticks Y-axis
-  
+
   if (Buffer == "over") {
     control = 255;
   }
 
-  else if (Buffer == "under") {
+  else if (Buffer == "unde") {
     control = 0;
   }
   
