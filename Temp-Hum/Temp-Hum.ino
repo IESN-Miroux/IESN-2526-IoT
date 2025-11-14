@@ -10,7 +10,7 @@ unsigned long ms_from_start = 0;
 unsigned long last_read = 0;
 unsigned long interval = 5000;
 
-float control = 0;
+float control = 255;
 
 void setup() {
 
@@ -38,7 +38,7 @@ void loop() {
   int yAxis = analogRead(A1); // Read Joysticks Y-axis
   
   if (Buffer == "over") {
-    control = 100;
+    control = 255;
   }
 
   else if (Buffer == "under") {
