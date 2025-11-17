@@ -1,6 +1,7 @@
 #include <Bonezegei_DHT22.h>
 
 #define PIN 11
+#define LED 6
 
 //param (2) = pin used for data
 Bonezegei_DHT22 dht(2);
@@ -13,9 +14,12 @@ unsigned long interval = 5000;
 float control = 255;
 float tempDeg = 0;
 
+int tempDeg100 = 0;
+
 void setup() {
 
   pinMode(PIN, OUTPUT);
+  pinMode(LED, OUTPUT);
   Serial.begin(115200);
   dht.begin();
 
@@ -85,8 +89,14 @@ void loop() {
 
     }
 
-  }
+    tempDeg100 = tempDeg * 10;
 
-  
+    unsigned int tempvalue = map(tempDeg100, 220, 235, 0, 255);
+    Serial.println(tempDeg);
+    Serial.println(tempDeg100);
+    Serial.println(tempvalue);
+    analogWrite(LED, tempvalue);
+
+  }
 
 }
