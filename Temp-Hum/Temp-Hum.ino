@@ -12,9 +12,6 @@ unsigned long last_read = 0;
 unsigned long interval = 5000;
 
 float control = 255;
-float tempDeg = 0;
-
-int tempDeg100 = 0;
 
 void setup() {
 
@@ -60,21 +57,29 @@ void loop() {
 
     if (dht.getData()) {
     
-    // get temperatur in celsius
-    tempDeg = dht.getTemperature();
-    // get humidity
-    float hum = dht.getHumidity();
+      // get temperatur in celsius
+      float tempDeg = dht.getTemperature();
+      // get humidity
+      float hum = dht.getHumidity();
 
-    // Print output
-    Serial.print("{\"deviceID\":\"jla-01\",\"sensor\":\"DHT22\",");
-    Serial.print("\"ok\":true");
-    Serial.print(",\"temp_c\":");
-    Serial.print(tempDeg, 1);
-    Serial.print(",\"hum\":");
-    Serial.print(hum, 1);
-    Serial.print(",\"ts_ms\":");
-    Serial.print(ms_from_start);
-    Serial.println("}");
+      // Print output
+      Serial.print("{\"deviceID\":\"jla-01\",\"sensor\":\"DHT22\",");
+      Serial.print("\"ok\":true");
+      Serial.print(",\"temp_c\":");
+      Serial.print(tempDeg, 1);
+      Serial.print(",\"hum\":");
+      Serial.print(hum, 1);
+      Serial.print(",\"ts_ms\":");
+      Serial.print(ms_from_start);
+      Serial.println("}");
+
+      // Convert temperatur from float to int
+      int tempDeg100 = 0;
+      // Store temperatur timed by 10
+      tempDeg100 = tempDeg * 10;
+      // Map the desired temp to light the led
+      unsigned int tempvalue = map(tempDeg100, 220, 235, 0, 255);
+      analogWrite(LED, tempvalue);
 
     }
 
@@ -86,13 +91,10 @@ void loop() {
       Serial.print(",\"ts_ms\":");
       Serial.print(ms_from_start);
       Serial.println("}");
+      // Set led to 0 because error
+      analogWrite(LED, 0);
 
     }
-
-    tempDeg100 = tempDeg * 10;
-
-    unsigned int tempvalue = map(tempDeg100, 220, 235, 0, 255);
-    analogWrite(LED, tempvalue);
 
   }
 
