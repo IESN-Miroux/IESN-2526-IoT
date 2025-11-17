@@ -11,6 +11,7 @@ unsigned long last_read = 0;
 unsigned long interval = 5000;
 
 float control = 255;
+float tempDeg = 0;
 
 void setup() {
 
@@ -56,7 +57,7 @@ void loop() {
     if (dht.getData()) {
     
     // get temperatur in celsius
-    float tempDeg = dht.getTemperature();
+    tempDeg = dht.getTemperature();
     // get humidity
     float hum = dht.getHumidity();
 
@@ -85,5 +86,7 @@ void loop() {
     }
 
   }
+
+  
 
 }
