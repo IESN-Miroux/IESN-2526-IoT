@@ -92,9 +92,6 @@ void loop() {
     tempDeg100 = tempDeg * 10;
 
     unsigned int tempvalue = map(tempDeg100, 220, 235, 0, 255);
-    Serial.println(tempDeg);
-    Serial.println(tempDeg100);
-    Serial.println(tempvalue);
     analogWrite(LED, tempvalue);
 
   }
