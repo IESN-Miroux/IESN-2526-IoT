@@ -79,7 +79,16 @@ void loop() {
       tempDeg100 = tempDeg * 10;
       // Map the desired temp to light the led
       unsigned int tempvalue = map(tempDeg100, 220, 235, 0, 255);
-      analogWrite(LED, tempvalue);
+
+      if (tempDeg100 <= 220) {
+        analogWrite(LED, 0);
+      }
+      else if (tempDeg100 >= 235) {
+        analogWrite(LED, 255);
+      }
+      else {
+        analogWrite(LED, tempvalue);
+      }
 
     }
 
